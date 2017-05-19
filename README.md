@@ -10,5 +10,10 @@ A tool to decode text which has been encoded multiple times in base64.
   ```
 3. To uninstall simply type:
   ```sh
-  $ pip uninstall MERCURYCLAVE 
+  $ pip uninstall MERCURYCLAVE
   ```
+
+### Usage
+```
+MERCURYCLAVE --file <file_name>
+```
