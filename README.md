@@ -14,6 +14,6 @@ A tool to decode text which has been encoded multiple times in base64.
   ```
 
 ### Usage
-```
-MERCURYCLAVE --file <file_name>
+```sh
+$ MERCURYCLAVE --file <file_name>
 ```
