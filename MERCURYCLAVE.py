@@ -1,23 +1,24 @@
 import argparse
 import base64
-import re
 from utils import *
 
 
 def tool_decoder(file_name):
-    decoded_string = ''
-    validator = re.compile(
-        '^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$')
+    prev_string = ''
     try:
         with open(file_name, 'rb') as encoded_file:
             decoded_string = "".join(encoded_file.read().split())
-        if validator.match(decoded_string) != None:
-            while True:
+        if is_valid_b64(decoded_string):
+            while is_valid_b64(decoded_string):
                 try:
+                    prev_string = decoded_string
                     decoded_string = base64.b64decode(decoded_string)
                 except Exception as e:
                     break
-            print_info(decoded_string)
+            if is_valid_ascii(decoded_string):
+                print_info(decoded_string)
+            else:
+                print_info(prev_string)
         else:
             print_error(
                 "Hmm, seems like the file isn't base64 encoded or there's nothing in the file.")
