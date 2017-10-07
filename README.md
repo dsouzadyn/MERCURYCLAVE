@@ -13,6 +13,10 @@ A tool to decode text which has been encoded multiple times in base64.
   $ pip uninstall MERCURYCLAVE
   ```
 
+### Testing
+Install tox: `pip install tox`
+Run tests `tox`
+
 ### Usage
 ```sh
 $ mercuryclave --file <file_name>
